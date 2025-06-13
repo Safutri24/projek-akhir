@@ -1,4 +1,4 @@
-import CONFIG from '../utils/config.js';
+import CONFIG from '../utils/config.js'; // Import objek CONFIG secara default
 
 const api = {
     /**
@@ -8,7 +8,8 @@ const api = {
      */
     registerUser: async (userData) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/register.php`, {
+            // Menggunakan CONFIG.BASE_URL untuk mengakses base URL API
+            const response = await fetch(`${CONFIG.BASE_URL}/register.php`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -29,7 +30,8 @@ const api = {
      */
     loginUser: async (credentials) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/login.php`, {
+            // Menggunakan CONFIG.BASE_URL untuk mengakses base URL API
+            const response = await fetch(`${CONFIG.BASE_URL}/login.php`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -39,7 +41,8 @@ const api = {
             return await response.json();
         } catch (error) {
             console.error('API Error (Login):', error);
-            throw new new Error('Gagal terhubung ke server untuk login.');
+            // Memperbaiki typo: throw new new Error menjadi throw new Error
+            throw new Error('Gagal terhubung ke server untuk login.');
         }
     },
 
@@ -50,8 +53,8 @@ const api = {
      */
     getProfile: async (userId) => {
         try {
-            // Perbaikan sintaks URL: hapus <span class="math-inline"> dan }
-            const response = await fetch(`${API_BASE_URL}/profil.php?user_id=${userId}`);
+            // Menggunakan CONFIG.BASE_URL untuk mengakses base URL API
+            const response = await fetch(`${CONFIG.BASE_URL}/profil.php?user_id=${userId}`);
             return await response.json();
         } catch (error) {
             console.error('API Error (Get Profile):', error);
@@ -66,7 +69,8 @@ const api = {
      */
     submitSkrining: async (skriningData) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/skrining.php`, {
+            // Menggunakan CONFIG.BASE_URL untuk mengakses base URL API
+            const response = await fetch(`${CONFIG.BASE_URL}/skrining.php`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(skriningData)
@@ -85,8 +89,8 @@ const api = {
      */
     getRiwayat: async (userId) => {
         try {
-            // Perbaikan sintaks URL: hapus <span class="math-inline"> dan }
-            const response = await fetch(`${API_BASE_URL}/riwayat.php?user_id=${userId}`);
+            // Menggunakan CONFIG.BASE_URL untuk mengakses base URL API
+            const response = await fetch(`${CONFIG.BASE_URL}/riwayat.php?user_id=${userId}`);
             return await response.json();
         } catch (error) {
             console.error('API Error (Get Riwayat):', error);

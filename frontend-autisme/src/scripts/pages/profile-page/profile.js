@@ -1,4 +1,5 @@
-import api from '../../data/api.js';
+import api from '../../data/api.js'; // Pastikan jalur ini benar ke api.js Anda
+// import CONFIG from '../../utils/config.js'; // Tidak perlu diimpor jika hanya digunakan di api.js
 
 class ProfilePage {
   async render() {
@@ -7,14 +8,15 @@ class ProfilePage {
         <h1 id="content" class="profile-title">Profil Pengguna</h1>
         <div class="profile-card">
           <div class="profile-avatar">
-            <i class="fas fa-user-circle fa-5x text-gray-500"></i>
+            <i class="fas fa-user-circle fa-5x text-gray-500"></i> <!-- Contoh ikon Font Awesome -->
           </div>
           <div class="profile-info">
             <p class="profile-name"><strong>Nama:</strong> <span id="profile-nama"></span></p>
             <p><strong>Email:</strong> <span id="profile-email"></span></p>
             <p><strong>Jenis Kelamin:</strong> <span id="profile-jenis-kelamin"></span></p>
             <p><strong>Tanggal Lahir:</strong> <span id="profile-tanggal-lahir"></span></p>
-            <p class="text-sm text-gray-400">ID Pengguna: <span id="profile-id"></span></p>
+            <!-- Baris ini dihapus agar ID Pengguna tidak terlihat -->
+            <!-- <p class="text-sm text-gray-400">ID Pengguna: <span id="profile-id"></span></p> -->
           </div>
         </div>
 
@@ -39,7 +41,7 @@ class ProfilePage {
   }
 
   _initProfilePage() {
-    const profileIdElement = document.getElementById('profile-id');
+    // profileIdElement tidak perlu diambil jika tidak ditampilkan
     const profileNamaElement = document.getElementById('profile-nama');
     const profileEmailElement = document.getElementById('profile-email');
     const profileJenisKelaminElement = document.getElementById('profile-jenis-kelamin');
@@ -61,7 +63,7 @@ class ProfilePage {
 
     // Ambil data profil dari API
     this._fetchProfileData(userId, {
-      profileIdElement,
+      // profileIdElement tidak perlu diteruskan jika tidak ditampilkan
       profileNamaElement,
       profileEmailElement,
       profileJenisKelaminElement,
@@ -83,21 +85,23 @@ class ProfilePage {
   }
 
   async _fetchProfileData(userId, elements) {
-    const { profileIdElement, profileNamaElement, profileEmailElement, profileJenisKelaminElement, profileTanggalLahirElement, statusContainer } = elements;
+    // profileIdElement tidak perlu didekonstruksi jika tidak digunakan
+    const { profileNamaElement, profileEmailElement, profileJenisKelaminElement, profileTanggalLahirElement, statusContainer } = elements;
 
     statusContainer.innerHTML = `<div class="info-message">Memuat data profil...</div>`;
 
     try {
-      const result = await api.getProfile(userId);
+      const result = await api.getProfile(userId); // Memanggil fungsi getProfile dari api.js
 
       if (result.success) {
         const userData = result.data;
-        profileIdElement.textContent = userData.id || 'N/A';
+        // Baris ini dikomentari/dihapus agar ID Pengguna tidak terlihat
+        // profileIdElement.textContent = userData.id || 'N/A'; 
         profileNamaElement.textContent = userData.nama || 'N/A';
         profileEmailElement.textContent = userData.email || 'N/A';
         profileJenisKelaminElement.textContent = userData.jenis_kelamin || 'N/A';
         profileTanggalLahirElement.textContent = userData.tanggal_lahir || 'N/A';
-        statusContainer.innerHTML = '';
+        statusContainer.innerHTML = ''; // Hapus pesan loading
       } else {
         statusContainer.innerHTML = `<div class="error-message">Gagal memuat profil: ${result.message || 'Data tidak ditemukan.'}</div>`;
       }
@@ -149,7 +153,8 @@ class ProfilePage {
     localStorage.removeItem('userName');
 
     alert('Anda telah berhasil logout.');
-    window.location.hash = '#/login';
+    // updateNavBasedOnAuth(); // Panggil jika ada fungsi ini untuk memperbarui navigasi
+    window.location.hash = '#/login'; // Arahkan ke halaman login
   }
 }
 

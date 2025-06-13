@@ -236,18 +236,18 @@ section h2::after {
 
 /* Visibility link berdasarkan desktop/mobile */
 .desktop-link {
-    display: inline-block;
+    display: inline-block; /* Tampilkan di desktop */
 }
 .mobile-link {
-    display: none;
+    display: none; /* Sembunyikan di desktop */
 }
 
 /* Auth-required-link (disembunyikan jika belum login) */
 .auth-required-link {
-    display: none;
+  display: none; /* Default tersembunyi, diatur oleh JS saat login */
 }
 .logout-menu {
-    display: none;
+    display: none; /* Default tersembunyi, diatur oleh JS saat login */
 }
 
 /* ==========================================================================
@@ -901,7 +901,6 @@ section h2::after {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 .tujuan-box ul {
-    flex: 1 1 400px;
     list-style-type: none; /* Hapus bullet default */
     padding-left: 0;
     line-height: 2; /* Jarak baris lebih lebar */
@@ -960,16 +959,13 @@ section h2::after {
     text-align: left;
 }
 
-/* ==========================================================================
-   Artikel Section (Halaman Beranda)
-   ========================================================================== */
 .artikel-card .read-more-btn {
     /* Ini akan mengambil gaya dari .btn .btn-primary */
     margin-top: auto; /* Dorong tombol ke bawah card */
     display: inline-block; /* Agar bisa menerapkan padding/margin */
     align-self: flex-start; /* **PENTING: Biarkan di kiri jika card text-align: left;** */
     /* Jika Anda ingin tombol "Baca Selengkapnya" terpusat di dalam card, ubah align-self: center; */
-    align-self: center; /* Contoh: Memusatkan tombol dalam card */
+    align-self: center; 
 }
 
 /* Modifikasi untuk memastikan flex-start/center bekerja pada artikel-card */
@@ -1029,66 +1025,65 @@ section h2::after {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
-    border: 4px solid white; /* Border lebih tebal */
+    border: 4px solid white; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .pakar-card h3 {
     color: white;
     margin-bottom: 10px;
-    font-size: 1.6rem; /* Ukuran judul pakar lebih besar */
+    font-size: 1.6rem;
 }
 
 .pakar-deskripsi {
     font-size: 1rem;
     color: white;
-    margin-bottom: 25px; /* Jarak lebih besar */
+    margin-bottom: 25px;
 }
 
-.pakar-btn { /* Ini sekarang adalah tag <a> dengan class .btn .pakar-btn */
+.pakar-btn {
     background-color: white;
     color: #2c3e50;
     padding: 10px 25px;
     border: none;
-    border-radius: 50px; /* Bentuk lonjong */
+    border-radius: 50px; 
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease, transform 0.2s ease;
-    text-decoration: none; /* Hapus underline default link */
+    text-decoration: none; 
 }
 .pakar-btn:hover {
     background-color: #f0f0f0;
     transform: translateY(-3px);
 }
 
-/* Media Query untuk Artikel */
-@media (max-width: 992px) { /* Tablet */
+@media (max-width: 992px) { 
     .artikel-list {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 kolom untuk tablet */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
         gap: 25px;
     }
     .artikel-container {
-        flex-direction: column; /* Tumpuk di tablet jika ruang tidak cukup */
+        flex-direction: column;
         align-items: center;
     }
     .pakar-card {
-        max-width: 400px; /* Batasi lebar pakar card di tablet */
+        max-width: 400px; 
     }
 }
 
-@media (max-width: 768px) { /* Mobile */
+@media (max-width: 768px) { 
     .artikel-list {
-        grid-template-columns: 1fr; /* **Ini kunci untuk 1 kolom di mobile** */
+        grid-template-columns: 1fr; 
         gap: 20px;
     }
     .artikel-item {
-        flex-direction: column; /* Ikon dan teks tumpuk di mobile */
+        flex-direction: column; 
         text-align: center;
         padding: 15px;
     }
     .artikel-item img {
-        margin-bottom: 10px; /* Jarak antara ikon dan teks saat bertumpuk */
+        margin-bottom: 10px; 
     }
     .artikel-item h3 {
         font-size: 1.05rem;
@@ -1098,12 +1093,11 @@ section h2::after {
     }
     .pakar-card {
         width: 100%;
-        max-width: 350px; /* Batasi lebar pakar card di mobile */
+        max-width: 350px;
         padding: 25px;
     }
 }
 
-/* Footer */
 .footer {
     font-size: 0.9rem;
     color: #888;
@@ -1111,12 +1105,10 @@ section h2::after {
     padding: 30px;
     background-color: #eaf9fc;
     border-top: 1px solid #ccc;
-    margin-top: auto; /* Kunci sticky footer: Dorong footer ke bawah */
-    /* Jika Anda ingin tinggi footer tetap, Anda bisa menambahkan height: var(--footer-height); */
-    /* height: var(--footer-height); */
-    display: flex; /* Agar konten di dalam footer bisa dipusatkan */
-    align-items: center; /* Pusatkan vertikal konten footer */
-    justify-content: center; /* Pusatkan horizontal konten footer */
-    width: 100%; /* Pastikan footer mengambil lebar penuh */
-    flex-shrink: 0; /* Pastikan footer tidak menyusut */
+    margin-top: auto;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 100%; 
+    flex-shrink: 0; 
 }

@@ -1,39 +1,44 @@
-// artikel.js
-// Asumsi Anda punya data artikel dari suatu sumber (misalnya API atau array lokal)
-// import ArticleSource from '../../data/article-source'; // Contoh jika Anda punya sumber data artikel
-// import CONFIG from '../../utils/config.js'; // Jika Anda butuh akses ke API
-
-export default class ArticlePage { // Nama class yang konsisten: ArticlePage
+export default class ArticlePage {
   async render() {
     return `
       <section class="artikel-section">
-        <div class="container"> <h2>Artikel</h2>
+        <div class="container">
+          <h2>Artikel</h2>
           <div class="artikel-container">
             <div class="artikel-list">
-              <a href="#/artikel/detail/1" class="artikel-item"> <img src="https://img.icons8.com/color/96/brain.png" alt="ikon" />
+
+              <a href="https://www.halodoc.com/artikel/ibu-harus-tahu-inilah-penyebab-autisme-pada-anak" class="artikel-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.icons8.com/color/96/brain.png" alt="ikon" />
                 <div>
                   <h3>Pengertian Autisme dan Gejalanya</h3>
                   <p class="artikel-date">12 April 2024</p>
                 </div>
               </a>
-              <a href="#/artikel/detail/2" class="artikel-item"> <img src="https://img.icons8.com/color/96/family--v1.png" alt="ikon" />
+
+              <a href="https://www.nutriclub.co.id/artikel/kesehatan/1-tahun/tanda-autisme-pada-balita" class="artikel-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.icons8.com/color/96/family--v1.png" alt="ikon" />
                 <div>
                   <h3>Cara Dukungan bagi Orang Tua Anak dengan Autisme</h3>
                   <p class="artikel-date">5 April 2024</p>
                 </div>
               </a>
-              <a href="#/artikel/detail/3" class="artikel-item"> <img src="https://img.icons8.com/color/96/checklist--v1.png" alt="ikon" />
+
+              <a href="https://www.slbautisma-yppabukittinggi.sch.id/berita/detail/980353/5-cara-menangani-dan-mendidik-anak-autis/" class="artikel-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.icons8.com/color/96/checklist--v1.png" alt="ikon" />
                 <div>
                   <h3>Metode Screening untuk Diagnostik Autisme</h3>
                   <p class="artikel-date">30 Maret 2024</p>
                 </div>
               </a>
-              <a href="#/artikel/detail/4" class="artikel-item"> <img src="https://img.icons8.com/color/96/boy.png" alt="ikon" />
+
+              <a href="https://www.halodoc.com/artikel/ibu-harus-tahu-inilah-penyebab-autisme-pada-anak" class="artikel-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.icons8.com/color/96/boy.png" alt="ikon" />
                 <div>
                   <h3>Berkomunikasi dengan Anak Penyandang Autisme</h3>
                   <p class="artikel-date">15 Maret 2024</p>
                 </div>
               </a>
+
             </div>
 
             <aside class="pakar-card">
@@ -43,15 +48,16 @@ export default class ArticlePage { // Nama class yang konsisten: ArticlePage
               <p class="pakar-deskripsi">
                 Autisme adalah spektrum gangguan perkembangan yang berpengaruh pada perilaku serta kemampuan komunikasi dan interaksi sosial.
               </p>
-              <a href="#/artikel/pakar" class="btn pakar-btn">baca artikel</a>
+              <a href="https://www.nutriclub.co.id/artikel/kesehatan/1-tahun/tanda-autisme-pada-balita" class="btn pakar-btn" target="_blank" rel="noopener noreferrer">baca artikel</a>
             </aside>
+
           </div>
-        </div> </section>
+        </div>
+      </section>
     `;
   }
 
   async afterRender() {
-    // Fungsi ini tidak perlu diubah karena kita sudah langsung mengatur link di HTML
     const artikelList = document.querySelector('.artikel-list');
     if (artikelList) {
       artikelList.classList.add('fade-in');
