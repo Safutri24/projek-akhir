@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autism</title>
+
+  
+  <!-- Muat Font Awesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/pp.jpg" alt="Logo Autism" />
+      <span class="text-logo">
+        <span style="color: red;">A</span><span style="color: orange;">U</span>
+        <span style="color: yellow;">T</span><span style="color: green;">I</span>
+        <span style="color: blue;">S</span><span style="color: darkred;">M</span>
+      </span>
+    </div>
+
+    <button id="drawer-button" class="drawer-button">☰</button>
+    <nav id="navigation-drawer" class="menu">
+      <!-- Navigasi desktop (disembunyikan di mobile) -->
+      <a href="#/" class="nav-link">BERANDA</a>
+      <a href="#/about" class="nav-link auth-required-link desktop-link">TENTANG KAMI</a>
+      <a href="#/articel" class="nav-link auth-required-link desktop-link">ARTIKEL</a>
+      <a href="#/screening" class="nav-link auth-required-link desktop-link">SKRINING</a>
+      <!-- Link PROFIL SAYA dan Logout desktop dihapus dari sini -->
+
+      <!-- Link untuk mobile drawer (disembunyikan di desktop) -->
+      <a href="#/profile" class="nav-link auth-required-link mobile-link">PROFIL SAYA</a>
+      <a href="#/login" class="nav-link login-menu mobile-link">LOGIN</a>
+    </nav>
+  </header>
+
+  <main id="main-content"></main>
+  <footer class="footer">
+    <p>© 2025 Autism. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
