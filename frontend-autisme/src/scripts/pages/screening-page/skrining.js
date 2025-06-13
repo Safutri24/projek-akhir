@@ -1,4 +1,4 @@
-import api from '../../data/api.js'; // Import fungsi API Anda
+import api from '../../data/api.js'; 
 
 export default class ScreeningPage {
   async render() {
